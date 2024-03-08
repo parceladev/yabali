@@ -1,10 +1,15 @@
-import { Button } from "@material-tailwind/react";
+import {} from '@material-tailwind/react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { UserLayout } from './layouts/UserLayout';
+import { AuthLayout } from './layouts/AuthLayout';
+
 function App() {
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      <Button>Button</Button>
-    </div>
+    <Routes>
+      <Route path="/user/*" element={<UserLayout />} />
+      <Route path="/auth/*" element={<AuthLayout />} />
+      <Route path="*" element={<Navigate to="/user/home" replace />} />
+    </Routes>
   );
 }
 
