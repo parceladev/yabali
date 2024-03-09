@@ -1,1 +1,1 @@
-export { default as ProfilePage } from './ProfilePage.jsx';
+export { default as ButtonDonate } from '../generals/Button.jsx';

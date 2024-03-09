@@ -9,7 +9,7 @@ import {
 const Footer = () => {
   return (
     <div>
-      <div className="grid grid-cols-1 gap-8 p-12 text-center text-white bg-green-500 md:grid-cols-2 lg:grid-cols-3 md:text-start">
+      <div className="grid grid-cols-1 gap-8 p-16 text-center text-white bg-green-500 md:grid-cols-2 lg:grid-cols-3 md:text-start">
         <div className="flex flex-col items-center justify-center md:col-span-2 lg:col-span-1 md:items-center">
           <img
             src="/public/logo/transparant-logo-yabali.png"
