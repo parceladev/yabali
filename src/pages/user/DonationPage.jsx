@@ -6,13 +6,15 @@ const DonationPage = () => {
   return (
     <div>
       <section className="Donate">
-        <div className="flex gap-12 p-16">
-          <div className="flex w-1/2">
-            <LineSpan margin="mr-8"></LineSpan>
+        <div className="grid grid-cols-1 gap-12 px-4 py-8 lg:p-16 lg:grid-cols-2">
+          <div className="flex order-2 lg:order-1">
+            <div className="hidden lg:flex">
+              <LineSpan margin="lg:mr-8"></LineSpan>
+            </div>
             <div className="flex flex-col gap-7">
               <h5>Donasi</h5>
               <BigTitle text="Mulai Memberi Sekarang" />
-              <p>
+              <p className="text-justify">
                 Kami optimis memberikan segalanya untuk menopang harapan mereka
                 untuk meraih kebahagiaan. Namun, segala kompleksitas dan
                 keterbatasan membuat kami mengerti bahwa tidak perlu menjadikan
@@ -29,37 +31,42 @@ const DonationPage = () => {
               />
             </div>
           </div>
-          <div className="w-1/2 p-10">
+          <div className="order-1 w-full p-0 lg:order-2">
             <img
               src="/public/donation/donation-donate.png"
-              className="h-full"
+              className="object-cover w-full h-full"
               alt="donation-donate"
             />
           </div>
         </div>
       </section>
-      <section className="Why They Need to Help ?">
-        <div className="flex flex-col gap-16 p-16">
-          <div className="flex gap-12">
-            <div className="w-3/5">
-              <img src="/public/donation/why-need-support.png" alt="" />
+
+      <section className="p-4 md:p-16">
+        <div className="flex flex-col gap-0 md:gap-16">
+          <div className="flex flex-col gap-4 md:flex-row md:gap-12">
+            <div className="md:w-3/5">
+              <img
+                src="/public/donation/why-need-support.png"
+                alt=""
+                className="w-full"
+              />
             </div>
-            <div className="flex w-2/5">
-              <div className="flex flex-col items-end w-full gap-5 text-end">
+            <div className="flex flex-col justify-center text-start md:flex-row md:text-end md:w-2/5">
+              <div className="flex flex-col items-end gap-5">
                 <h5>Mengapa Harus Mulai Peduli</h5>
                 <BigTitle text="Kenapa Mereka Butuh Dukungan Kita?"></BigTitle>
               </div>
-              <LineSpan margin="ml-8"></LineSpan>
+              <LineSpan margin="md:ml-8 hidden md:flex"></LineSpan>
             </div>
           </div>
-          <div className="grid grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-4 text-justify md:grid-cols-3 md:gap-8 md:text-left">
             <DescriptionList
               icon=""
               title="Masalah Psikologis"
               text="Banyak anak mengalami trauma atau masalah psikologis akibat
-                kondisi lingkungan atau kejadian yang mereka alami. Dukungan
-                terapeutik dan psikososial sangat penting untuk membantu mereka
-                pulih dan bangkit kembali."
+              kondisi lingkungan atau kejadian yang mereka alami. Dukungan
+              terapeutik dan psikososial sangat penting untuk membantu mereka
+              pulih dan bangkit kembali."
             ></DescriptionList>
             <DescriptionList
               icon=""
@@ -95,63 +102,48 @@ const DonationPage = () => {
         </div>
       </section>
       <section className="Where Your Donation Go">
-        <div className="flex gap-12 p-16 bg-orange-100">
-          <div className="flex w-1/2">
-            <LineSpan margin="mr-8"></LineSpan>
-            <div className="flex flex-col gap-7">
-              <h5>Bagaimana Donasi Digunakan</h5>
-              <BigTitle text="Bagaimana kami menggunakan donasi Anda" />
+        <div className="flex flex-wrap gap-12 p-4 bg-orange-100 md:p-16">
+          <div className="flex flex-col w-full md:gap-7 md:flex-row">
+            <div className="flex w-full md:w-1/2">
+              <LineSpan margin="hidden lg:flex mr-8"></LineSpan>
+              <div className="flex flex-col gap-7">
+                <h5>Bagaimana Donasi Digunakan</h5>
+                <BigTitle text="Bagaimana kami menggunakan donasi Anda" />
+                <DescriptionList
+                  icon=""
+                  title="Dukungan Langsung Kepada Anak dan Keluarga"
+                  text="Sebagian besar dari donasi yang kami terima digunakan untuk memberikan dukungan langsung kepada anak-anak dan keluarga mereka. Ini termasuk bantuan finansial untuk kebutuhan sehari-hari, akses ke layanan kesehatan, nutrisi, dan dukungan pendidikan."
+                ></DescriptionList>
+                <DescriptionList
+                  icon=""
+                  title="Advokasi dan Perlindungan"
+                  text="Kami juga menggunakan sebagian dana untuk advokasi hak anak dan upaya perlindungan anak dari kekerasan, eksploitasi, dan pengabaian. Ini termasuk program kesadaran masyarakat dan kemitraan dengan pihak berwenang untuk menciptakan lingkungan yang lebih aman bagi anak-anak."
+                ></DescriptionList>
+              </div>
+            </div>
+            <div className="flex flex-col w-full gap-8 md:w-1/2">
               <DescriptionList
                 icon=""
-                title="Dukungan Langsung Kepada Anak dan Keluarga"
-                text="Sebagian besar dari donasi yang kami terima digunakan untuk
-                memberikan dukungan langsung kepada anak-anak dan keluarga
-                mereka. Ini termasuk bantuan finansial untuk kebutuhan
-                sehari-hari, akses ke layanan kesehatan, nutrisi, dan dukungan
-                pendidikan."
+                title="Pengembangan dan Pelatihan"
+                text="Sebagian dari donasi digunakan untuk mengembangkan program dan pelatihan bagi anak-anak dan keluarga, termasuk workshop keterampilan hidup, pendidikan keuangan, dan seminar parenting. Ini adalah investasi dalam pemberdayaan jangka panjang."
               ></DescriptionList>
               <DescriptionList
                 icon=""
-                title="Advokasi dan Perlindungan"
-                text="Kami juga menggunakan sebagian dana untuk advokasi hak anak dan
-              upaya perlindungan anak dari kekerasan, eksploitasi, dan
-              pengabaian. Ini termasuk program kesadaran masyarakat dan
-              kemitraan dengan pihak berwenang untuk menciptakan lingkungan
-              yang lebih aman bagi anak-anak."
+                title="Layanan Kesehatan dan Terapi"
+                text="Donasi Anda membantu kami menyediakan akses ke layanan kesehatan dasar dan spesialis, termasuk terapi fisik, terapi wicara, dan dukungan psikologis untuk anak-anak yang memerlukannya."
+              ></DescriptionList>
+              <DescriptionList
+                icon=""
+                title="Operasional Yayasan"
+                text="Sebuah bagian kecil dari donasi digunakan untuk operasional harian yayasan, memastikan kami dapat terus menjalankan misi kami secara efektif. Kami berusaha keras untuk meminimalkan biaya administrasi agar lebih banyak dana yang dapat langsung diperuntukkan bagi anak-anak yang membutuhkan."
               ></DescriptionList>
             </div>
-          </div>
-          <div className="flex flex-col w-1/2 gap-8">
-            <DescriptionList
-              icon=""
-              title="Pengembangan dan Pelatihan"
-              text="Sebagian dari donasi digunakan untuk mengembangkan program dan
-              pelatihan bagi anak-anak dan keluarga, termasuk workshop
-              keterampilan hidup, pendidikan keuangan, dan seminar parenting.
-              Ini adalah investasi dalam pemberdayaan jangka panjang."
-            ></DescriptionList>
-            <DescriptionList
-              icon=""
-              title="Layanan Kesehatan dan Terapi"
-              text="Donasi Anda membantu kami menyediakan akses ke layanan kesehatan
-              dasar dan spesialis, termasuk terapi fisik, terapi wicara, dan
-              dukungan psikologis untuk anak-anak yang memerlukannya."
-            ></DescriptionList>
-            <DescriptionList
-              icon=""
-              title="Operasional Yayasan"
-              text="Sebuah bagian kecil dari donasi digunakan untuk operasional
-                harian yayasan, memastikan kami dapat terus menjalankan misi
-                kami secara efektif. Kami berusaha keras untuk meminimalkan
-                biaya administrasi agar lebih banyak dana yang dapat langsung
-                diperuntukkan bagi anak-anak yang membutuhkan."
-            ></DescriptionList>
           </div>
         </div>
       </section>
       <section className="Donatur dan Transparansi">
-        <div className="p-16">
-          <div className="flex flex-col items-center gap-16">
+        <div className="p-5 md:p-16">
+          <div className="flex flex-col items-center gap-5 md:gap-16">
             <div className="flex flex-col gap-5 text-center max-w-[600px]">
               <BigTitle text="Donatur dan Transparansi"></BigTitle>
               <p>
