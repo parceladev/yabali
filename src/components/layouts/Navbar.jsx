@@ -6,7 +6,10 @@ const Navbar = () => {
   return (
     <div className="flex items-center justify-between gap-16 px-8 py-6 shadow-md lg:px-16">
       <div>
-        <a href="/">Logo</a>
+        <a href="/" className="flex items-center gap-2">
+          <img src="/public/logo/logo-navbar.png" alt="logo-navbar" />
+          <h1 className="text-2xl font-bold uppercase">Yabali</h1>
+        </a>
       </div>
       <div className="hidden lg:gap-14 lg:flex">
         <a href="/">Beranda</a>
