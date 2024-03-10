@@ -1,8 +1,51 @@
 import { BigTitle } from '../../components/generals';
 import Button from '../../components/generals/Button';
 import LineSpan from './../../components/generals/LineSpan';
+import { useState, useEffect } from 'react';
+
+const formatDate = (dateString) => {
+  const options = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    timeZone: 'UTC',
+  };
+  return new Date(dateString).toLocaleDateString('id-ID', options);
+};
+
+const formatCurrency = (amount) => {
+  return new Intl.NumberFormat('id-ID', {
+    style: 'currency',
+    currency: 'IDR',
+    minimumFractionDigits: 0,
+  }).format(amount);
+};
 
 const DonationPage = () => {
+  const [dataDonatur, setDataDonatur] = useState([]);
+
+  useEffect(() => {
+    fetch('/api/donatur')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        const formattedData = data.map((item) => ({
+          ...item,
+          date: formatDate(item.date),
+          total_donate: formatCurrency(item.total_donate),
+        }));
+        setDataDonatur(formattedData);
+      })
+      .catch((error) =>
+        console.error('Ada kesalahan dalam mengambil data: ', error)
+      );
+  }, []);
+
   return (
     <div>
       <section className="Donate">
@@ -208,9 +251,67 @@ const DonationPage = () => {
                 tidak ingin memberikan tanda informasi pribadi.
               </p>
             </div>
-            <div>
-              <table>
-                <p>Disini table</p>
+            <div className="relative w-full overflow-x-auto rounded-lg shadow-md">
+              <table className="w-full text-sm text-left text-gray-500 border border-gray-600">
+                <thead className="text-xs text-gray-900 uppercase border border-gray-600 bg-gray-50 dark:bg-gray-700">
+                  <tr>
+                    <th
+                      scope="col"
+                      className="w-5 px-6 py-3 border border-gray-600"
+                    >
+                      No.
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 border border-gray-600"
+                    >
+                      Nama Donatur
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 border border-gray-600"
+                    >
+                      Hari dan Tanggal
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 border border-gray-600"
+                    >
+                      Total Donasi
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 border border-gray-600"
+                    >
+                      Pesan
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {dataDonatur.map((donatur, index) => (
+                    <tr
+                      key={donatur.id}
+                      className="text-gray-700 bg-white hover:bg-gray-50 dark:hover:bg-gray-600"
+                    >
+                      <td className="px-6 py-4 border border-gray-600">
+                        {index + 1}{' '}
+                        {/* Menampilkan nomor urut berdasarkan index */}
+                      </td>
+                      <td className="px-6 py-4 border border-gray-600">
+                        {donatur.donatur_name}
+                      </td>
+                      <td className="px-6 py-4 border border-gray-600">
+                        {donatur.date}
+                      </td>
+                      <td className="px-6 py-4 border border-gray-600">
+                        {donatur.total_donate}
+                      </td>
+                      <td className="max-w-xs px-6 py-4 truncate border border-gray-600">
+                        {donatur.message}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
               </table>
             </div>
           </div>
