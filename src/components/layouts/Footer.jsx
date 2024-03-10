@@ -92,7 +92,10 @@ const Footer = () => {
         </div>
       </div>
       <div className="py-3 text-sm text-center text-white bg-gray-900">
-        <p>Copyright © 2024 Yayasan Anak Bali Luih - Yabali.</p>
+        <p>
+          Copyright &copy; All Rights Reserved | 2024 | Yayasan Anak Bali Luih -
+          Yabali.
+        </p>
       </div>
     </div>
   );

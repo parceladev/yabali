@@ -1,20 +1,22 @@
 import PropTypes from 'prop-types';
 
-const Button = ({ text, bgColor = 'bg-green-500' }) => {
+const LinkButton = ({ text, bgColor = 'bg-green-500', href = '#' }) => {
   return (
     <div>
-      <button
+      <a
+        href={href}
         className={`px-3 py-2 text-white ${bgColor} rounded-md shadow-lg`}
       >
         {text}
-      </button>
+      </a>
     </div>
   );
 };
 
-Button.propTypes = {
+LinkButton.propTypes = {
   text: PropTypes.string.isRequired,
+  href: PropTypes.string, // Opsional, dengan default '#'
   bgColor: PropTypes.string, // Opsional, dengan default 'bg-green-500'
 };
 
-export default Button;
+export default LinkButton;
