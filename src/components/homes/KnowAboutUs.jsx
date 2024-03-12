@@ -11,7 +11,7 @@ const KnowAboutUs = () => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsMounted(true);
-          observer.disconnect(); // Mengganti observer.unobserve(ref.current)
+          observer.disconnect(); 
         }
       },
       {
@@ -23,7 +23,7 @@ const KnowAboutUs = () => {
     if (ref.current) observer.observe(ref.current);
 
     return () => {
-      observer.disconnect(); // Mengganti observer.unobserve(ref.current)
+      observer.disconnect(); 
     };
   }, []);
 
@@ -64,7 +64,9 @@ const KnowAboutUs = () => {
       <div className="mb-12 lg:mb-0 drop-shadow-md">
         <video
           className="mx-auto w-[450px] h-[550px] rounded-lg shadow-lg dark:shadow-black/20 object-cover object-center "
-          controls
+          autoPlay 
+          loop 
+          muted
         >
           <source
             src="https://docs.material-tailwind.com/demo.mp4"

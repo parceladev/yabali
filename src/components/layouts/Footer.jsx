@@ -4,7 +4,7 @@ import {
   FaTiktok,
   FaTwitter,
   FaYoutube,
-} from 'react-icons/fa';
+} from "react-icons/fa";
 
 const Footer = () => {
   return (

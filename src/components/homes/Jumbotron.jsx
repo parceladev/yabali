@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { CSSTransition } from "react-transition-group";
 import { Button } from "@material-tailwind/react";
+import { JumbotronImg } from "../../assets/user/homepage";
 
 const Jumbotron = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -13,7 +14,7 @@ const Jumbotron = () => {
     <section className="relative">
       <img
         className="h-[450px] w-full object-cover object-center"
-        src="/src/assets/user/homepage/Jumbotron.png"
+        src={JumbotronImg}
         alt="Jumbotron Image"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
@@ -24,7 +25,7 @@ const Jumbotron = () => {
           </h1>
         </CSSTransition>
         <CSSTransition in={isMounted} timeout={1000} classNames="fade" appear>
-          <h3 className="text-white text-1xl mb-[50px] max-w-[170px] text-center">
+          <h3 className="text-white text-1xl mb-[50px] max-w-[190px] text-center">
             Save from Poverty, Exploitation and Violence
           </h3>
         </CSSTransition>
