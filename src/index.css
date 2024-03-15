@@ -46,3 +46,74 @@ body {
   opacity: 0;
   transition: opacity 1000ms;
 }
+
+
+
+/* Gallery In Information Page Setup */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 10px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "Div-1 Div-2 Div-2"
+    "Div-1 Div-3 Div-4"
+    "Div-5 Div-5 Div-6";
+  width: 100%;
+  max-width: 900px;
+  height: 100%;
+  margin: auto;
+}
+
+.Div-1 {
+  grid-area: Div-1;
+  height: 610px;
+}
+
+.Div-2 {
+  grid-area: Div-2;
+  height: 300px;
+}
+
+.Div-3 {
+  grid-area: Div-3;
+  height: 300px;
+
+
+}
+
+.Div-4 {
+  grid-area: Div-4;
+  height: 300px;
+}
+
+.Div-5 {
+  grid-area: Div-5;
+  width: 600px;
+  height: 300px;
+}
+
+.Div-6 {
+  grid-area: Div-6;
+  height: 300px;
+}
+
+/* Media query untuk layar tablet dan smartphone */
+@media only screen and (max-width: 768px) {
+  .container {
+        grid-template-areas:
+        "Div-1 Div-2 Div-3"
+        "Div-4 Div-5 Div-6"
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .container {
+        grid-template-areas:
+        "Div-1 Div-2 "
+        "Div-3 Div-4"
+        "Div-5 Div-6"
+  }
+}
+
