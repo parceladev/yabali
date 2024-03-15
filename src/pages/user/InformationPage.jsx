@@ -1,8 +1,14 @@
+import { GalleryCard, News } from "../../components/informations";
 const InformationPage = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <a href="">Information Page</a>
-    </div>
+    <section>
+      <div className="flex flex-col min-h-screen max-w-[1150px] mx-auto ">
+        <News />
+      </div>
+      <div className="flex flex-col  w-full bg-secondary relative p-5 mt-7">
+        <GalleryCard />
+      </div>
+    </section>
   );
 };
 
