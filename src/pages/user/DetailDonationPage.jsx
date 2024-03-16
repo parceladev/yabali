@@ -7,7 +7,7 @@ const DetailDonationPage = () => {
         <div className="flex flex-col items-center justify-center w-full h-auto gap-12 p-5 text-center md:justify-start md:items-start md:text-left md:flex-row md:p-16">
           <div className="h-80 w-80">
             <img
-              src="/public/donation/barcode_qris_yabali.jpeg"
+              src="/src/assets/user/donation/barcode_qris_yabali.jpeg"
               alt="barcode qris yabali"
               className="w-full h-full"
             />

@@ -1,4 +1,9 @@
-import { BigTitle, LinkButton, LineSpan } from '../../components/generals';
+import {
+  BigTitle,
+  LinkButton,
+  LineSpan,
+  LittleTitle,
+} from '../../components/generals';
 import { DonaturTable } from './../../components/donations';
 import DescriptionList from './../../components/donations/DescriptionList';
 
@@ -12,7 +17,7 @@ const DonationPage = () => {
               <LineSpan margin="lg:mr-8"></LineSpan>
             </div>
             <div className="flex flex-col gap-7">
-              <h5>Donasi</h5>
+              <LittleTitle text="Donasi"></LittleTitle>
               <BigTitle text="Mulai Memberi Sekarang" />
               <p className="text-justify">
                 Kami optimis memberikan segalanya untuk menopang harapan mereka
@@ -33,7 +38,7 @@ const DonationPage = () => {
           </div>
           <div className="order-1 w-full p-0 lg:order-2">
             <img
-              src="/public/donation/donation-donate.png"
+              src="/src/assets/user/donation/donation-donate.png"
               className="object-cover w-full h-full"
               alt="donation-donate"
             />
@@ -46,14 +51,14 @@ const DonationPage = () => {
           <div className="flex flex-col gap-4 md:flex-row md:gap-12">
             <div className="md:w-3/5">
               <img
-                src="/public/donation/why-need-support.png"
+                src="/src/assets/user/donation/why-need-support.png"
                 alt=""
                 className="w-full"
               />
             </div>
             <div className="flex flex-col justify-center text-start md:flex-row md:text-end md:w-2/5">
               <div className="flex flex-col items-end gap-5">
-                <h5>Mengapa Harus Mulai Peduli</h5>
+                <LittleTitle text="Mengapa Harus Mulai Peduli"></LittleTitle>
                 <BigTitle text="Kenapa Mereka Butuh Dukungan Kita?"></BigTitle>
               </div>
               <LineSpan margin="md:ml-8 hidden md:flex"></LineSpan>
@@ -107,7 +112,7 @@ const DonationPage = () => {
             <div className="flex w-full md:w-1/2">
               <LineSpan margin="hidden lg:flex mr-8"></LineSpan>
               <div className="flex flex-col gap-7">
-                <h5>Bagaimana Donasi Digunakan</h5>
+                <LittleTitle text="Bagaimana Donasi Digunakan"></LittleTitle>
                 <BigTitle text="Bagaimana kami menggunakan donasi Anda" />
                 <DescriptionList
                   icon=""

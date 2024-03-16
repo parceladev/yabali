@@ -4,15 +4,15 @@ import {
   FaTiktok,
   FaTwitter,
   FaYoutube,
-} from "react-icons/fa";
+} from 'react-icons/fa';
 
 const Footer = () => {
   return (
     <div>
-      <div className="grid grid-cols-1 gap-8 p-16 text-center text-white bg-green-500 md:grid-cols-2 lg:grid-cols-3 md:text-start">
+      <div className="grid grid-cols-1 gap-8 p-16 text-center text-white bg-primary md:grid-cols-2 lg:grid-cols-3 md:text-start">
         <div className="flex flex-col items-center justify-center md:col-span-2 lg:col-span-1 md:items-center">
           <img
-            src="/public/logo/transparant-logo-yabali.png"
+            src="/src/assets/generals/logo/transparant-logo-yabali.png"
             alt="YABALI Logo"
           />
           <h1 className="text-4xl font-semibold">YABALI</h1>

@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import { CSSTransition } from "react-transition-group";
-import { Button } from "@material-tailwind/react";
-import { JumbotronImg } from "../../assets/user/homepage";
+import { useState, useEffect } from 'react';
+import { CSSTransition } from 'react-transition-group';
+import { JumbotronImg } from '../../assets/user/homepage';
+import LinkButton from './../generals/LinkButton';
 
 const Jumbotron = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -13,14 +13,14 @@ const Jumbotron = () => {
   return (
     <section className="relative">
       <img
-        className="h-[450px] w-full object-cover object-center"
+        className="object-cover object-center w-full h-screen"
         src={JumbotronImg}
         alt="Jumbotron Image"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
-      <div className="absolute inset-1 flex flex-col justify-center items-center">
+      <div className="absolute flex flex-col items-center justify-center inset-1">
         <CSSTransition in={isMounted} timeout={1000} classNames="fade" appear>
-          <h1 className="text-white text-4xl font-bold mb-4 font-heading xs:text-5xl">
+          <h1 className="mb-4 text-4xl font-bold text-white font-heading sm:text-5xl">
             Yayasan Anak Bali Luih
           </h1>
         </CSSTransition>
@@ -29,15 +29,12 @@ const Jumbotron = () => {
             Save from Poverty, Exploitation and Violence
           </h3>
         </CSSTransition>
-        <Button
-          variant="gradient"
-          size="md"
-          className="bg-primary text-white drop-shadow-md px-5 py-3 text-[13px] font-heading font-medium rounded-[2px] shadow-md"
-        >
-          What We Do
-        </Button>
+        <LinkButton
+          bgColor="bg-primary py-3 px-4 uppercase font-heading"
+          text="What We Do"
+        ></LinkButton>
       </div>
-      <div className="absolute bottom-0 left-0 right-0 p-6 text-white text-center flex justify-between gap-2x ">
+      <div className="absolute bottom-0 left-0 right-0 flex justify-between p-6 text-center text-white gap-2x ">
         <p className="text-[11px] m-auto w-[20%] font-paragraph">
           230 children under our care
         </p>

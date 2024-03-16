@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 
 const BigTitle = ({ text }) => {
   return (
-    <div>
-      <h1 className="text-5xl font-bold">{text}</h1>
+    <div className="max-w-[650px]">
+      <h1 className="text-5xl font-bold leading-tight">{text}</h1>
     </div>
   );
 };

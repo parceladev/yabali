@@ -1,10 +1,12 @@
-import { useState, useEffect, useRef } from "react";
-import { CSSTransition } from "react-transition-group";
-import { whatWeDoContent } from "../../content/homepageContent";
-import { Banner1 } from "../../assets/user/homepage";
+import { useState, useEffect, useRef } from 'react';
+import { whatWeDoContent } from '../../content/homepageContent';
+import { Banner1 } from '../../assets/user/homepage';
+import LineSpan from './../generals/LineSpan';
+import BigTitle from '../generals/BigTitle';
+import LittleTitle from './../generals/LittleTitle';
 
 const WhatWeDo = () => {
-  const [isMounted, setIsMounted] = useState(false);
+  const [setIsMounted] = useState(false);
   const ref = useRef(null);
 
   useEffect(() => {
@@ -16,7 +18,7 @@ const WhatWeDo = () => {
         }
       },
       {
-        rootMargin: "0px",
+        rootMargin: '0px',
         threshold: 0.5,
       }
     );
@@ -26,56 +28,53 @@ const WhatWeDo = () => {
     return () => {
       observer.disconnect();
     };
-  }, []);
+  });
 
   return (
-    <section className="grid items-center gap-12 lg:grid-cols-2 shadow-md bg-secondary p-6">
-      <div>
-        <div ref={ref}>
-          <CSSTransition in={isMounted} timeout={1000} classNames="fade" appear>
-            <div className="flex items-center gap-5">
-              <div className="h-0.5 bg-primary w-[40px] hidden sm:block"></div>
-              <p className="font-paragraph text-[13px] font-bold leading-3 hidden sm:block">
-                WHAT WE DO
-              </p>
-            </div>
-          </CSSTransition>
-        </div>
-        <div className="ml-[45px]">
-          <h1 className="font-heading font-bold text-4xl my-10">
-            Layanan kami untuk anak-anak
-          </h1>
-          <p className="font-paragraph font-regular text-[12px] mb-10 ">
-            Di YABALI, setiap hari adalah kesempatan untuk menyalakan
-            bintang-bintang kecil di langit masa depan anak-anak yang
-            membutuhkan. Melalui serangkaian layanan yang kami rancang khusus,
-            kami berusaha memberikan lebih dari sekadar bantuan - kami
-            memberikan harapan, dukungan, dan kesempatan. Berikut adalah inti
-            dari apa yang kami berikan:
-          </p>
-          <div className="border-l-2 border-primary">
-            {whatWeDoContent.map((content, index) => (
-              <div key={index} className="flex px-3 items-start gap-4  ">
-                <img src={content.icon} alt="Family Icon" />
-                <div>
-                  <h3 className="font-heading font-bold text-[18px]">
-                    {content.title}
-                  </h3>
-                  <p className="font-paragraph font-regular text-[14px] mb-10 ">
-                    {content.description}
-                  </p>
-                </div>
+    <section>
+      <div className="grid justify-between w-full grid-cols-1 grid-rows-2 gap-0 p-4 shadow-md sm:gap-16 sm:p-16 sm:grid-cols-2 sm:grid-rows-1 bg-secondary">
+        <div className="flex order-2 gap-5 sm:order-1">
+          <div className="hidden sm:flex">
+            <LineSpan></LineSpan>
+          </div>
+          <div className="flex flex-col gap-8 pt-1">
+            <LittleTitle text="What We Do"></LittleTitle>
+            <BigTitle text="Layanan kami untuk anak-anak kita"></BigTitle>
+            <p className="text-md font-paragraph font-regular ">
+              Di YABALI, setiap hari adalah kesempatan untuk menyalakan
+              bintang-bintang kecil di langit masa depan anak-anak yang
+              membutuhkan. Melalui serangkaian layanan yang kami rancang khusus,
+              kami berusaha memberikan lebih dari sekadar bantuan - kami
+              memberikan harapan, dukungan, dan kesempatan. Berikut adalah inti
+              dari apa yang kami berikan:
+            </p>
+            <div className="flex">
+              <span className="w-1 h-full bg-primary"></span>
+              <div className="flex flex-col items-center justify-center gap-8">
+                {whatWeDoContent.map((content, index) => (
+                  <div key={index} className="flex items-start gap-5 px-5">
+                    <img src={content.icon} alt="Family Icon" />
+                    <div className="flex flex-col gap-2">
+                      <h3 className="text-lg font-bold font-heading">
+                        {content.title}
+                      </h3>
+                      <p className="text-sm font-paragraph font-regular">
+                        {content.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
-      </div>
-      <div className="mb-12 lg:mb-0 drop-shadow-md bg">
-        <img
-          className="mx-auto w-[450px] h-[740px] rounded-lg shadow-lg dark:shadow-black/20 object-cover object-center"
-          src={Banner1}
-          alt="What We Do Banner"
-        />
+        <div className="order-1 sm:order-2 sm:mb-0 drop-shadow-md">
+          <img
+            className="w-full sm:w-[450px] h-full rounded-lg shadow-lg dark:shadow-black/20 object-cover object-center"
+            src={Banner1}
+            alt="What We Do Banner"
+          />
+        </div>
       </div>
     </section>
   );
